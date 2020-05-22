@@ -17,13 +17,13 @@ client.on('message', message => {
     if (message.content === '!ping') {
         
         console.log(`ping de ${message.author}`);
-        message.reply('pong');
+        message.reply(`pong ${message.author}`);
 
        }
 
     if (message.content === '!lapicero') {
 
-        message.reply('${message.author} eres puto');
+        message.reply('eres puto');
 
         }
 
