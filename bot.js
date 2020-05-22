@@ -33,7 +33,7 @@ client.on('message', message => {
             message.channel.send(`${user}, ${message.author} dice que te calles`);
 
         }else{
-            message.channel.reply('si no tienes nadie a quién mandar callar, cállate');
+            message.reply('si no tienes nadie a quién mandar callar, cállate');
         }
     }
 
