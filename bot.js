@@ -23,7 +23,7 @@ client.on('message', message => {
 
     if (message.content === '!lapicero') {
 
-        message.reply('eres puto');
+        message.reply('${message.author} eres puto');
 
         }
 
