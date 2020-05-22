@@ -17,7 +17,7 @@ client.on('message', message => {
     if (message.content === '!ping') {
         
         console.log(`ping de ${message.author}`);
-        message.reply(`pong ${message.author}`);
+        message.reply('pong');
 
        }
 
@@ -29,7 +29,7 @@ client.on('message', message => {
 
     if (message.content.startsWith('!stfu')) {
         const user = message.mentions.users.first();
-        message.channel.send(`Callate ${user}`);
+        message.channel.send(`${user}, ${message.author} dice que te calles`);
         }
 
 });
