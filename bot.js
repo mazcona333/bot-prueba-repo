@@ -16,7 +16,7 @@ client.on('message', message => {
 
     if (message.content === '!ping') {
         
-        console.log(`ping de ${message.author}`);
+        console.log(`ping de ${message.author.username}, ${message.author.id},${message.author},${message.author.tag}`);
         message.reply('pong');
 
        }
