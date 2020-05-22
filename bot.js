@@ -26,6 +26,10 @@ client.on('message', message => {
 
         }
 
+    if (message.content.startsWith('!stfu')) {
+        const user = message.mentions.users.first();
+        channel.send('Calate ${user}');
+
 });
 
  
