@@ -14,31 +14,76 @@ client.on('ready', () => {
 
 client.on('message', message => {
 
-    if (message.content === '!ping') {
-        
-        console.log(`ping de ${message.author.tag}`);
-        message.reply('pong');
+    switch (message.content) {
+        case '!ping':
+            console.log(`ping de ${message.author.tag}`);
+            message.reply('pong');
+            break;
+        case '!lapicero':
+            message.reply('eres puto');
+            break;
+        case '!stfu':
+            const user = message.mentions.users.first();
+            if(user){
+                message.channel.send(`${user}, ${message.author} dice que te calles`);
+    
+            }else{
+                message.reply('si no tienes nadie a quién mandar callar, cállate');
+            }
+            break;
+        case '!piedra' || '!papel' || '!tijera':
+            juego(message.content);
+            break;
 
-    }
-
-    if (message.content === '!lapicero') {
-
-        message.reply('eres puto');
-
-    }
-
-    if (message.content.startsWith('!stfu')) {
-        const user = message.mentions.users.first();
-        if(user){
-            message.channel.send(`${user}, ${message.author} dice que te calles`);
-
-        }else{
-            message.reply('si no tienes nadie a quién mandar callar, cállate');
-        }
-    }
+      }
 
 });
 
+function juego(eleccion) {
+    sel = Math.floor(Math.random() * 3);
+    switch (eleccion) {
+        case '!piedra':
+            switch (sel) {
+                case 0:
+                    message.reply('piedra, empate');
+                    break;
+                case 1:
+                    message.reply('papel, he ganado yo');
+                    break;
+                case 2:
+                    message.reply('tijera, has ganado tu');
+                    break;
+            }
+            break;
+        case '!papel':
+            switch (sel) {
+                case 0:
+                    message.reply('piedra, has ganado tu');
+                    break;
+                case 1:
+                    message.reply('papel, empate');
+                    break;
+                case 2:
+                    message.reply('tijera, he ganado yo');
+                    break;
+            }
+            break;
+        case '!tijera':
+            switch (sel) {
+                case 0:
+                    message.reply('piedra, he ganado yo');
+                    break;
+                case 1:
+                    message.reply('papel, has ganado tu');
+                    break;
+                case 2:
+                    message.reply('tijera, empate');
+                    break;
+            }
+            break;
+    }
+    return ;
+}
  
 
 // THIS  MUST  BE  THIS  WAY
