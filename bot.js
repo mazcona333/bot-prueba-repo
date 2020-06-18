@@ -23,13 +23,13 @@ client.on('message', message => {
             message.reply('eres puto');
             break;
         case '!piedra':
-            juego(message.content);
+            juego(message);
             break;
         case '!papel':
-            juego(message.content);
+            juego(message);
             break;
         case '!tijera':
-            juego(message.content);
+            juego(message);
             break;
         default:
             if (message.content.startsWith('!stfu')) {
@@ -47,9 +47,9 @@ client.on('message', message => {
 
 });
 
-function juego(eleccion) {
+function juego(message) {
     sel = Math.floor(Math.random() * 3);
-    switch (eleccion) {
+    switch (message.content) {
         case '!piedra':
             switch (sel) {
                 case 0:
