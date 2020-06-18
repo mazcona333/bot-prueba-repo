@@ -22,17 +22,25 @@ client.on('message', message => {
         case '!lapicero':
             message.reply('eres puto');
             break;
-        case '!stfu':
-            const user = message.mentions.users.first();
-            if(user){
-                message.channel.send(`${user}, ${message.author} dice que te calles`);
-    
-            }else{
-                message.reply('si no tienes nadie a quién mandar callar, cállate');
-            }
-            break;
-        case '!piedra' || '!papel' || '!tijera':
+        case '!piedra':
             juego(message.content);
+            break;
+        case '!papel':
+            juego(message.content);
+            break;
+        case '!tijera':
+            juego(message.content);
+            break;
+        default:
+            if (message.content.startsWith('!stfu')) {
+                const user = message.mentions.users.first();
+                if(user){
+                    message.channel.send(`${user}, ${message.author} dice que te calles`);
+        
+                }else{
+                    message.reply('si no tienes nadie a quién mandar callar, cállate');
+                }
+            }
             break;
 
       }
