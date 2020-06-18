@@ -49,43 +49,45 @@ client.on('message', message => {
 
 function juego(message) {
     sel = Math.floor(Math.random() * 3);
+    var elec = ["piedra", "papel", "tijera"];
+    var res = [", empate", ", gano yo", ", ganas tu"];
     switch (message.content) {
         case '!piedra':
             switch (sel) {
                 case 0:
-                    message.reply('piedra, empate');
+                    message.reply(elec[sel] + res[0]);
                     break;
                 case 1:
-                    message.reply('papel, he ganado yo');
+                    message.reply(elec[sel] + res[1]);
                     break;
                 case 2:
-                    message.reply('tijera, has ganado tu');
+                    message.reply(elec[sel] + res[2]);
                     break;
             }
             break;
         case '!papel':
             switch (sel) {
                 case 0:
-                    message.reply('piedra, has ganado tu');
+                    message.reply(elec[sel] + res[2]);
                     break;
                 case 1:
-                    message.reply('papel, empate');
+                    message.reply(elec[sel] + res[0]);
                     break;
                 case 2:
-                    message.reply('tijera, he ganado yo');
+                    message.reply(elec[sel] + res[1]);
                     break;
             }
             break;
         case '!tijera':
             switch (sel) {
                 case 0:
-                    message.reply('piedra, he ganado yo');
+                    message.reply(elec[sel] + res[1]);
                     break;
                 case 1:
-                    message.reply('papel, has ganado tu');
+                    message.reply(elec[sel] + res[2]);
                     break;
                 case 2:
-                    message.reply('tijera, empate');
+                    message.reply(elec[sel] + res[0]);
                     break;
             }
             break;
