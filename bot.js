@@ -32,20 +32,26 @@ client.on('message', message => {
             juego(message);
             break;
         default:
-            if (message.content.startsWith('!stfu')) {
-                const user = message.mentions.users.first();
-                if(user){
-                    message.channel.send(`${user}, ${message.author} dice que te calles`);
-        
-                }else{
-                    message.reply('si no tienes nadie a quién mandar callar, cállate');
-                }
+            var msgIni = message.content.split(' ')[0];
+            switch(msgIni){
+                case '!stfu':
+                    stfu(message);
+                    break;
             }
             break;
-
       }
 
 });
+
+function stfu(message){
+    const user = message.mentions.users.first();
+    if(user){
+        message.channel.send(`${user}, ${message.author} dice que te calles`);
+
+    }else{
+        message.reply('si no tienes nadie a quién mandar callar, cállate');
+    }
+}
 
 function juego(message) {
     sel = Math.floor(Math.random() * 3);
